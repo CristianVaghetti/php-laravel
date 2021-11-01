@@ -34,6 +34,12 @@ Route::get('/sobre-nos', function () {
 //     }
 // ) -> where('categoria_id', '[0-9]+')-> where('nome', '[A-Za-z]+');
 
+// Route::get('/rota1', function (){return 'Rota1';})->name('site.rota1');;
+
+// Route::get('/rota2', function () {
+//     return redirect() -> route('site.rota1');
+// })->name('site.rota2');
+
 
 
 Route::get('/', 'PrincipalController@principal')->name('site.index');
@@ -50,12 +56,8 @@ Route::prefix('/app')->group(function () {
     Route::get('/produtos', function (){return 'Produtos';})-> name('app.produtos');
 });
 
-Route::get('/rota1', function (){return 'Rota1';})->name('site.rota1');;
-
-Route::get('/rota2', function () {
-    return redirect() -> route('site.rota1');
-})->name('site.rota2');
-
 Route::fallback(function () {
     echo 'A rota acessada não exite. <a href="'.route('site.index').'">Clique aqui</a> para voltar para pagina inical.';
 });
+
+Route::get('/teste/{p1}/{p2}', 'TesteController@teste')->name('site.teste')-> where('p1', '[0-9]+')-> where('p2', '[0-9]+');
