@@ -23,9 +23,18 @@
 }
 @endif--}}
 <br>
-Fornecedor: {{$fornecedores[0]['nome']}}<br>
-Status: {{$fornecedores[0]['status']}}<br>
-
-@if($fornecedores[0]['status'] == 'N')
+{{--@if($fornecedores[0]['status'] == 'N')
     Fornecedor inativo
-@endif
+@endif--}}
+
+@isset($fornecedores)
+    @for($i = 0; isset($fornecedores[$i]); $i++)
+    Fornecedor: {{$fornecedores[$i]['nome']}}<br>
+    Status: {{$fornecedores[$i]['status']}}<br>
+    CNPJ: {{$fornecedores[$i]['cnpj']}}<br>
+    DDD: {{$fornecedores[$i]['ddd'] ?? ''}}<br>
+    Telefone: {{$fornecedores[$i]['telefone'] ?? ''}}<br>
+    <hr>
+    @endfor
+
+@endisset
