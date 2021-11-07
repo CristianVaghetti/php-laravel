@@ -10,7 +10,7 @@
 
         <div class="informacao-pagina">
             <div class="contato-principal">
-            @component('site.layouts._components.form_contato')
+            @component('site.layouts._components.form_contato',['classe'=>'borda_branca', 'motivo_contatos'=>$motivo_contatos])
                 <p>A nossa equipe analisará a sua mensagem o mais breve possível.</p>
                 <p>O nosso tempo estimado de espera é de 48 anos.</p>
             @endcomponent
