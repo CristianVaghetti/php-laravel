@@ -44,6 +44,15 @@ class ContatoController extends Controller
             'email' => 'email',
             'motivo_contatos_id' => 'required',
             'mensagem' => 'required|max:2000'
+        ],[
+            'nome.required'=> 'Tem que colocar nome boca aberta...',
+            'nome.min'=> 'Um nome válido né Zé...',
+            'nome.max'=> 'Não precisa colocar toda árvore genealógica',
+            'telefone.required'=> 'Coloca um telefone o seu bosta',
+            'email.email'=> 'Email invalido, vou pedir pra Deus te retornar',
+            'motivo_contatos_id.required'=> 'Seleciona uma opção! Nem isso tu consegue?!',
+            'mensagem.required'=> 'Manda pelo menos a merda!'
+
         ]);
         SiteContato::create($request->all());
         return redirect()->route('site.index');
