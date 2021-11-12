@@ -60,7 +60,13 @@ Route::middleware('autenticacao')->prefix('/app')->group(function () {
     Route::get('/sair', 'LoginController@sair')-> name('app.sair');
     Route::get('/clientes', 'ClienteController@index')-> name('app.clientes');
     Route::get('/fornecedores', 'FornecedorController@index')-> name('app.fornecedores');
-    Route::get('/produtos', 'ProdutoController@index')-> name('app.produtos');
+    Route::post('/fornecedores/listar', 'FornecedorController@listar')-> name('app.fornecedores.listar');
+    Route::get('/fornecedores/adicionar', 'FornecedorController@adicionar')-> name('app.fornecedores.adicionar');
+    Route::post('/fornecedores/adicionar', 'FornecedorController@adicionar')-> name('app.fornecedores.adicionar');
+    Route::get('/fornecedores/editar{id}/{msg?}', 'FornecedorController@editar')-> name('app.fornecedores.editar');
+    Route::get('/fornecedores/excluir{id}', 'FornecedorController@excluir')-> name('app.fornecedores.excluir');
+    
+    Route::resource('produto', 'ProdutoController');
 });
 
 Route::fallback(function () {
